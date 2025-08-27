@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>moectf2025 web</title>
+      <link href="/2025/08/27/moectf2025-web/"/>
+      <url>/2025/08/27/moectf2025-web/</url>
+      
+        <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>moectf是面向零基础的新生赛，而且我也是刚刚学web没多久，所以我将以完全新生视角作题</p><p>建议了解一些入门手册里提到的基础知识，不需要太深学如入学习</p><h2 id="01-第一章-神秘的手镯"><a href="#01-第一章-神秘的手镯" class="headerlink" title="01 第一章 神秘的手镯"></a>01 第一章 神秘的手镯</h2><p>需要输入“万言启封咒”，这个在附件里有但是不能粘贴，看小说找提示哈哈哈，省流：神念探查可窥天机！直接打开f12查看源代码，发现是前端验证js代码直接进行验证的</p><p>ctrl+f查找flag直接获得</p><p>另一个方法：右键检查，打开监听器发现有个paste通过源代码可以知道就是禁用粘贴的代码，给他禁用就可以粘贴了，然后正常得到</p><p>moectf{f_i2_1s_Your_g00d_fri3nd!!}</p><hr><h2 id="02-第二章-初识金曦玄轨"><a href="#02-第二章-初识金曦玄轨" class="headerlink" title="02 第二章 初识金曦玄轨"></a>02 第二章 初识金曦玄轨</h2><p>通过省流可知是要抓包，需要抓包工具，可以网上查BurpSuite的安装教程</p><p>学习基础抓包然后发现响应里有个路径，依旧抓包得到flag：</p><p>moectf{0bs3rv3_Th3_Gold3n_traiL}</p><hr><h2 id="03-第三章-问剑石！篡天改命！"><a href="#03-第三章-问剑石！篡天改命！" class="headerlink" title="03 第三章 问剑石！篡天改命！"></a>03 第三章 问剑石！篡天改命！</h2><p>根据第二章的提示我们需要抓包并且修改内容</p><p>根据提示需要将天赋改为S，光芒改为flowing_azure_clouds</p><p>用Burp Suite抓包发现天赋是用get方式提交的，光芒是post，发送到repeater修改数据内容，得到响应里有flag</p><p>moectf{g3t-Po5t_tR@n5ml5sl0n-1S_a_Go0D_mETh0d1l11fd}</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> ctf </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> web </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>我的第一个博客</title>
       <link href="/2025/08/06/wo-de-di-yi-ge-bo-ke/"/>
       <url>/2025/08/06/wo-de-di-yi-ge-bo-ke/</url>
