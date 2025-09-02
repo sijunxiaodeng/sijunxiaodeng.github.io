@@ -4,11 +4,36 @@
   
     
     <entry>
+      <title>web漏洞-SQL注入(1)</title>
+      <link href="/2025/08/31/web-lou-dong-sql-zhu-ru-1/"/>
+      <url>/2025/08/31/web-lou-dong-sql-zhu-ru-1/</url>
+      
+        <content type="html"><![CDATA[<h1 id="sql基础知识"><a href="#sql基础知识" class="headerlink" title="sql基础知识"></a>sql基础知识</h1><h1 id="SQL基础知识"><a href="#SQL基础知识" class="headerlink" title="SQL基础知识"></a>SQL基础知识</h1><h2 id="什么是SQL"><a href="#什么是SQL" class="headerlink" title="什么是SQL"></a>什么是SQL</h2><p>SQL是一种用于管理和操作关系数据库的标准语言，包括数据查询、数据插入、数据更新、数据删除、数据库结构创建和修改等功能。</p><p>sql可以用在所有关系型数据库，例如：MySQL，Oracle等，在不同类型的数据库中sql语法可能略有不同，因此在分析sql漏洞时要尽量先获取数据库信息。</p><h2 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h2><h3 id="什么是数据库"><a href="#什么是数据库" class="headerlink" title="什么是数据库"></a>什么是数据库</h3><p>简单来讲，数据库就是用来存储数据的仓库。</p><p>例如一个网站的用户信息（账号、密码）会存放在一个数据库中以便登录等</p><h3 id="数据库架构"><a href="#数据库架构" class="headerlink" title="数据库架构"></a>数据库架构</h3><p>不同类型的数据库架构略有不同</p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">mysql</span><br><span class="line">数据库名</span><br><span class="line">表名</span><br><span class="line">列名（字段）</span><br><span class="line">数据</span><br></pre></td></tr></table></figure><p>一个数据库下可以有多个表，其实和excel表格很像，一个excel文件（数据库）下可以有多个工作表（表），每个工作表（表）又有许多表头（列），然后每个格都可以存储数据。</p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Access</span><br><span class="line">表名</span><br><span class="line">列名（字段）</span><br><span class="line">数据</span><br></pre></td></tr></table></figure><p>Access比mysql少了一级，所以用字典猜表名列名较困难</p><h4 id="数据库用户"><a href="#数据库用户" class="headerlink" title="数据库用户"></a>数据库用户</h4><p>数据库架构还有一个重要的部分就是<strong>数据库用户</strong>，access数据库就没有数据库用户，以mysql为例。</p><p>mysql有内置默认管理员用户root，有最高权限</p><p>不同用户拥有不同权限，数据库级可以对数据库操作、表级、列级可能只有查询所在列信息的权限，因此获得高权限对sql注入更有效。</p><hr><h1 id="sql简单注入的步骤"><a href="#sql简单注入的步骤" class="headerlink" title="sql简单注入的步骤"></a>sql简单注入的步骤</h1><p>代码块测试</p><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line">cout&lt;&lt;<span class="string">&quot;test&quot;</span>;</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> 学习笔记 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> sql </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>moectf2025 web</title>
       <link href="/2025/08/27/moectf2025-web/"/>
       <url>/2025/08/27/moectf2025-web/</url>
       
-        <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>moectf是面向零基础的新生赛，而且我也是刚刚学web没多久，所以我将以完全新生视角作题</p><p>建议了解一些入门手册里提到的基础知识，不需要太深学如入学习</p><h2 id="01-第一章-神秘的手镯"><a href="#01-第一章-神秘的手镯" class="headerlink" title="01 第一章 神秘的手镯"></a>01 第一章 神秘的手镯</h2><p>需要输入“万言启封咒”，这个在附件里有但是不能粘贴，看小说找提示哈哈哈，省流：神念探查可窥天机！直接打开f12查看源代码，发现是前端验证js代码直接进行验证的</p><p>ctrl+f查找flag直接获得</p><p>另一个方法：右键检查，打开监听器发现有个paste通过源代码可以知道就是禁用粘贴的代码，给他禁用就可以粘贴了，然后正常得到</p><p>moectf{f_i2_1s_Your_g00d_fri3nd!!}</p><hr><h2 id="02-第二章-初识金曦玄轨"><a href="#02-第二章-初识金曦玄轨" class="headerlink" title="02 第二章 初识金曦玄轨"></a>02 第二章 初识金曦玄轨</h2><p>通过省流可知是要抓包，需要抓包工具，可以网上查BurpSuite的安装教程</p><p>学习基础抓包然后发现响应里有个路径，依旧抓包得到flag：</p><p>moectf{0bs3rv3_Th3_Gold3n_traiL}</p><hr><h2 id="03-第三章-问剑石！篡天改命！"><a href="#03-第三章-问剑石！篡天改命！" class="headerlink" title="03 第三章 问剑石！篡天改命！"></a>03 第三章 问剑石！篡天改命！</h2><p>根据第二章的提示我们需要抓包并且修改内容</p><p>根据提示需要将天赋改为S，光芒改为flowing_azure_clouds</p><p>用Burp Suite抓包发现天赋是用get方式提交的，光芒是post，发送到repeater修改数据内容，得到响应里有flag</p><p>moectf{g3t-Po5t_tR@n5ml5sl0n-1S_a_Go0D_mETh0d1l11fd}</p>]]></content>
+        <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>moectf是面向零基础的新生赛，而且我也是刚刚学web没多久，所以我将以完全新生视角作题</p><p>建议了解一些入门手册里提到的基础知识，不需要太深学如入学习</p><h2 id="01-第一章-神秘的手镯"><a href="#01-第一章-神秘的手镯" class="headerlink" title="01 第一章 神秘的手镯"></a>01 第一章 神秘的手镯</h2><p>需要输入“万言启封咒”，这个在附件里有但是不能粘贴，看小说找提示哈哈哈，省流：神念探查可窥天机！直接打开f12查看源代码，发现是前端验证js代码直接进行验证的</p><p>ctrl+f查找flag直接获得</p><p>另一个方法：右键检查，打开监听器发现有个paste通过源代码可以知道就是禁用粘贴的代码，给他禁用就可以粘贴了，然后正常得到</p><p>moectf{f_i2_1s_Your_g00d_fri3nd!!}</p><hr><h2 id="02-第二章-初识金曦玄轨"><a href="#02-第二章-初识金曦玄轨" class="headerlink" title="02 第二章 初识金曦玄轨"></a>02 第二章 初识金曦玄轨</h2><p>通过省流可知是要抓包，需要抓包工具，可以网上查BurpSuite的安装教程</p><p>学习基础抓包然后发现响应里有个路径，依旧抓包得到flag：</p><p>moectf{0bs3rv3_Th3_Gold3n_traiL}</p><hr><h2 id="03-第三章-问剑石！篡天改命！"><a href="#03-第三章-问剑石！篡天改命！" class="headerlink" title="03 第三章 问剑石！篡天改命！"></a>03 第三章 问剑石！篡天改命！</h2><p>根据第二章的提示我们需要抓包并且修改内容</p><p>根据提示需要将天赋改为S，光芒改为flowing_azure_clouds</p><p>用Burp Suite抓包发现天赋是用get方式提交的，光芒是post，发送到repeater修改数据内容，得到响应里有flag</p><p>moectf{g3t-Po5t_tR@n5ml5sl0n-1S_a_Go0D_mETh0d1l11fd}</p><hr><h2 id="19-第十九章-revenge"><a href="#19-第十九章-revenge" class="headerlink" title="19 第十九章_revenge"></a><strong>19 第十九章_revenge</strong></h2><p>看源码发现unserialize，应该是php反序列化类型的题目</p>]]></content>
       
       
       <categories>
